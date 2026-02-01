@@ -1,34 +1,40 @@
 class Node:
-    def __init__(self,d):
-        self.value = d
+    def __init__(self,data):
+        self.value = data 
         self.left = None
         self.right = None
 
-
-
-    def InsertNode(self,value):
-        if self.value > value:
+    
+    def insert(self,value):
+        if value <= self.value:
             if self.left==None:
                 self.left = Node(value)
             else:
-                self.left.InsertNode(value)
-        
+                self.left.insert(value)
         else:
-            if self.right is None:
-                self.right=Node(value)
+            if self.right==None:
+                self.right = Node(value)
+
             else:
-                self.right.InsertNode(value)
+                self.right.insert(value)
+
+    def contains(self,value):
+        if self.value==value:
+            return True
+        if self.value>value and self.left is not None:
+            return self.left.contains(value)
+        elif self.value<value and self.right is not None:
+            return self.right.contains(value)
         
-print("yep all good")
+        return False
+    
+    def remove(self,value):
+        
 
 
-root = Node(1)
-root.InsertNode(2)
-root.InsertNode(22)
-root.InsertNode(4)
-root.InsertNode(5)
-root.InsertNode(4)
-root.InsertNode(54) 
-print('ok looks good')
-print(root.right.right.left.right.value)
-
+n = Node(50)
+n.insert(40)
+n.insert(30)
+print(n.contains(30))
+        
+ 

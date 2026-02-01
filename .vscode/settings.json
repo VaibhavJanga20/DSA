@@ -1,3 +1,14 @@
 {
-    "python.REPL.enableREPLSmartSend": false
+    "python.REPL.enableREPLSmartSend": false,
+    "python.runInTerminal": true,
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "python": "python3 -u"
+    },
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "/bin/zsh"
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "zsh"
 }
